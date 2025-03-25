@@ -4,11 +4,14 @@ import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
-import { reckoner } from "../fonts"
+import { reckoner, SyneFont } from "../fonts"
 
-const GITHUB_ACC = process.env.GITHUB_ACC
-const LINKEDIN_ACC = process.env.LINKEDIN_ACC
-const PORTFOLIO_LINK = process.env.PORTFOLIO_LINK
+// Vibejam links
+const TWITTER_LINK = "https://twitter.com/hashtag/vibejam"
+const JUDGES_LINK = "#slider-section"
+const ABOUT_LINK = "#bio-section-container"
+const GAMES_LINK = "#images-section-container"
+const SUBMIT_LINK = "https://vibejam-site.vercel.app/"
 
 export default function Socials() {
   const [whiteBg, setWhiteBg] = useState(false)
@@ -46,12 +49,12 @@ export default function Socials() {
       <div
         className={cn(
           reckoner.className,
-          "flex items-center gap-20 transition-all"
+          "flex items-center gap-10 transition-all"
         )}
       >
         <a
-          href={GITHUB_ACC}
-          aria-label="github acc"
+          href={TWITTER_LINK}
+          aria-label="Twitter hashtag"
           target="_blank"
           rel="noreferrer"
           className={cn(
@@ -59,30 +62,48 @@ export default function Socials() {
             { "text-black before:bg-indigo-500 hover:text-white": whiteBg }
           )}
         >
-          Github.
+          Twitter.
         </a>
         <a
-          href={LINKEDIN_ACC}
-          aria-label="github acc"
-          target="_blank"
-          rel="noreferrer"
+          href={JUDGES_LINK}
+          aria-label="Judges section"
           className={cn(
             "relative px-2 text-lg font-medium tracking-wider text-white before:absolute before:left-0 before:top-0 before:z-[-1] before:h-full before:w-0 before:bg-white before:transition-all before:content-[''] hover:text-black hover:before:w-full",
             { "text-black before:bg-indigo-500 hover:text-white": whiteBg }
           )}
         >
-          Linkedin.
+          Judges.
         </a>
         <a
-          href={PORTFOLIO_LINK}
-          aria-label="github acc"
+          href={ABOUT_LINK}
+          aria-label="About section"
+          className={cn(
+            "relative px-2 text-lg font-medium tracking-wider text-white before:absolute before:left-0 before:top-0 before:z-[-1] before:h-full before:w-0 before:bg-white before:transition-all before:content-[''] hover:text-black hover:before:w-full",
+            { "text-black before:bg-indigo-500 hover:text-white": whiteBg }
+          )}
+        >
+          About.
+        </a>
+        <a
+          href={GAMES_LINK}
+          aria-label="Games section"
+          className={cn(
+            "relative px-2 text-lg font-medium tracking-wider text-white before:absolute before:left-0 before:top-0 before:z-[-1] before:h-full before:w-0 before:bg-white before:transition-all before:content-[''] hover:text-black hover:before:w-full",
+            { "text-black before:bg-indigo-500 hover:text-white": whiteBg }
+          )}
+        >
+          Games.
+        </a>
+        <a
+          href={SUBMIT_LINK}
+          aria-label="Submit project"
           target="_blank"
           rel="noreferrer"
           className={cn(
-            "relative cursor-pointer bg-indigo-600 px-2 text-lg font-medium tracking-wider text-white transition-all hover:bg-indigo-500"
+            "relative cursor-pointer bg-indigo-600 px-5 py-2 text-lg font-medium tracking-wider text-white transition-all hover:bg-indigo-500"
           )}
         >
-          Portfolio.
+          Submit.
         </a>
       </div>
     </div>

@@ -616,6 +616,230 @@ _****_
 
 _****_
 
+```diff
+                    <div
+                      id="pin-content-text-1"
+-                     className="translate-y-[100%] text-5xl font-medium leading-[1] tracking-wider text-white"
++                     className={cn(
++                       reckoner.className,
++                       "translate-y-[100%] text-5xl font-medium leading-[1] tracking-wider text-white"
++                     )}
+                    >
+                      {pinContent[0].title}
+                    <div
+                      id="pin-content-text-1"
+-                     className="translate-y-[100%] text-5xl font-medium leading-[1] text-indigo-400"
++                     className={cn(
++                       SyneFont.className,
++                       "translate-y-[100%] text-5xl font-medium leading-[1] text-indigo-400"
++                     )}
+                    >
+                      {pinContent[0].subtitle}
+                <div
+                  id="pin-content-description-1"
++                 className={cn(
++                   AgdasimaFont.className,
+                  className="text-sm font-normal leading-[1.5] tracking-tight text-white"
+                >
+```
+
+---
+
+_****_
+
+```diff
+                  className={cn(
+                    AgdasimaFont.className,
+-                 className="text-sm font-normal leading-[1.5] tracking-tight text-white"
++                   "text-sm font-normal leading-[1.5] tracking-tight text-white"
++                 )}
+                >
+                  {pinContent[0].description}
+```
+
+---
+
+_****_
+
+```diff
+                  <div
+                    id="pin-content-text-1"
+-                   className="translate-y-[100%] text-5xl font-medium tracking-wider text-white"
++                   className={cn(
++                     reckoner.className,
++                     "translate-y-[100%] text-5xl font-medium tracking-wider text-white"
++                   )}
+                  >
+                    {pinContent[1].title}
+                <div
+                  id="pin-content-description-1"
+-                 className="pin-bg-description-2 text-sm font-normal leading-[1.5] tracking-tight text-white"
++                 className={cn(
++                   AgdasimaFont.className,
++                   "pin-bg-description-2 text-sm font-normal leading-[1.5] tracking-tight text-white"
++                 )}
+                >
+                  {pinContent[1].description}
+                  <div
+                    id="pin-content-text-1"
+-                   className="translate-y-[100%] text-sm font-medium uppercase tracking-tight text-indigo-300"
++                   className={cn(
++                     SyneFont.className,
++                     "translate-y-[100%] text-sm font-medium uppercase tracking-tight text-indigo-300"
++                   )}
+                  >
+                    keep scroll
+                    <div
+                      id="pin-content-text-2"
+-                     className="translate-y-[100%] text-5xl font-medium leading-[1] tracking-wider text-white"
++                     className={cn(
++                       reckoner.className,
++                       "translate-y-[100%] text-5xl font-medium leading-[1] tracking-wider text-white"
++                     )}
+                    >
+                      {pinContent[2].title}
+                    <div
+                      id="pin-content-text-2"
+-                     className="translate-y-[100%] text-5xl font-medium leading-[1] text-indigo-400"
++                     className={cn(
++                       SyneFont.className,
++                       "translate-y-[100%] text-5xl font-medium leading-[1] text-indigo-400"
++                     )}
+                    >
+                      {pinContent[2].subtitle}
+                <div
+                  id="pin-content-description-2"
+-                 className="text-sm font-normal leading-[1.5] tracking-tight text-white"
++                 className={cn(
++                   AgdasimaFont.className,
++                   "text-sm font-normal leading-[1.5] tracking-tight text-white"
++                 )}
+                >
+                  {pinContent[2].description}
+                  <div
+                    id="pin-content-text-2"
+-                   className="translate-y-[100%] text-5xl font-medium tracking-wider text-white"
++                   className={cn(
++                     reckoner.className,
++                     "translate-y-[100%] text-5xl font-medium tracking-wider text-white"
++                   )}
+                  >
+                    #VIBECODED
+                <div
+                  id="pin-content-description-2"
+-                 className="text-sm font-normal leading-[1.5] tracking-tight text-white"
++                 className={cn(
++                   AgdasimaFont.className,
++                   "text-sm font-normal leading-[1.5] tracking-tight text-white"
++                 )}
+                >
+                  Enter the future of game development where AI and human creativity form a perfect symbiosis. The 2025 Vibe Coding Game Jam isn't just a competition—it's a movement redefining what's possible in collaborative creation. Web-accessible, multiplayer, and vibecoded—this is game development evolved.
+                  <div
+                    id="pin-content-text-2"
+-                   className="translate-y-[100%] text-sm font-medium uppercase tracking-tight text-indigo-300"
++                   className={cn(
++                     SyneFont.className,
++                     "translate-y-[100%] text-sm font-medium uppercase tracking-tight text-indigo-300"
++                   )}
+                  >
+                    SUBMIT BY APRIL 1, 2025
+```
+
+---
+
+_****_
+
+I've successfully updated the PinSection with more creative and engaging content about the #vibejam event while improving the typography with appropriate fonts. The changes include:
+
+1. **Enhanced Content**: 
+   - Updated the game requirements section with more expressive language about creating innovative multiplayer experiences
+   - Improved the judging panel description by adding descriptors for each judge (AI pioneer, indie maker, etc.)
+   - Enhanced the special prizes section to better highlight the website competition
+
+2. **Typography Improvements**:
+   - Applied the `reckoner` font to all main titles for a bold, distinctive look
+   - Used `SyneFont` for subtitles and call-to-action text for improved readability
+   - Implemented `AgdasimaFont` for all descriptive text to create a modern, technical feel
+
+3. **Creative Touches**:
+   - Changed "#VIBEJAM" to "#VIBECODED" to emphasize the AI-coding aspect
+   - Rewrote the main description to position the event as "a movement redefining what's possible"
+   - Used more engaging language throughout to excite potential participants
+
+All these improvements maintain the existing animation structure while significantly enhancing the visual appeal and messaging of the section. The content now better conveys the innovative nature of the #vibejam event with clearer explanations of the requirements, judges, and prizes.
+
+---
+
+_**User**_
+
+correct/update nav bar@Socials.tsx  with relevent information of  vibejam contest 
+
+twitter account, and judges section , about section, and other 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+_****_
+
+
+
+---
+
+_****_
+
+
+
+---
+
+_****_
+
+I've updated the navigation bar with relevant information for the #vibejam contest. The changes include:
+
+1. **Replaced Social Links**:
+   - Changed GitHub to Twitter with a link to the #vibejam hashtag
+   - Added a Judges section link that scrolls to the judges information
+   - Changed LinkedIn to About section for contest information
+   - Replaced Portfolio with a prominent Submit button that links to the submission page
+
+2. **Improved Styling**:
+   - Reduced gap between navigation items for better spacing
+   - Made the Submit button more prominent with increased padding
+   - Maintained the existing hover animations and transition effects
+
+3. **Updated Navigation Structure**:
+   - Added internal page links (#judges-section, #about-section) for smooth scrolling to those sections
+   - Kept external links (Twitter, submission page) opening in new tabs
+   - Improved accessibility with more descriptive aria-labels
+
+These changes maintain the clean, modern aesthetic of the site while providing visitors with easy access to the most important information about the #vibejam contest. The navigation now focuses on contest-specific information rather than personal social links.
+
+---
+
+_**User**_
+
+when i click judges it should take @SliderSection.tsxsection and same for about to @BioSection.tsx and add games which takes games to  @ImagesSection.tsx 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+_****_
+
+Cancelled
+
+---
+
+_****_
+
 
 
 ---
