@@ -1,16 +1,16 @@
 "use client"
 
 import { useEffect } from "react"
-import Image1 from "@/app/assets/kid-robot/robot-1.jpg"
-import Image2 from "@/app/assets/kid-robot/robot-2.jpg"
-import Image3 from "@/app/assets/kid-robot/robot-3.jpg"
-import Image4 from "@/app/assets/kid-robot/robot-4.jpg"
-import Image5 from "@/app/assets/kid-robot/robot-5.jpg"
-import Image6 from "@/app/assets/kid-robot/robot-6.jpg"
-import Image7 from "@/app/assets/kid-robot/robot-7.jpg"
-import Image8 from "@/app/assets/kid-robot/robot-8.jpg"
-import Image9 from "@/app/assets/kid-robot/robot-9.jpg"
-import Image10 from "@/app/assets/kid-robot/robot-10.jpg"
+import Image1 from "@/app/assets/kid-robot/gameimg-1.png"
+import Image2 from "@/app/assets/kid-robot/gameimg-2.png"
+import Image3 from "@/app/assets/kid-robot/gameimg-3.png"
+import Image4 from "@/app/assets/kid-robot/gameimg-4.png"
+import Image5 from "@/app/assets/kid-robot/gameimg-5.png"
+import Image6 from "@/app/assets/kid-robot/gameimg-6.png"
+import Image7 from "@/app/assets/kid-robot/gameimg-7.png"
+import Image8 from "@/app/assets/kid-robot/gameimg-8.png"
+import Image9 from "@/app/assets/kid-robot/gameimg-9.png"
+import Image10 from "@/app/assets/kid-robot/gameimg-10.png"
 import { cn } from "@/lib/utils"
 import gsap from "gsap"
 import Image from "next/image"
@@ -21,13 +21,13 @@ const GITHUB_REPO = process.env.GITHUB_REPO || "/games"
 
 // Image data with URLs
 const IMAGE_LINKS = [
-  { url: "https://example.com/game1", label: "Play Now" },
-  { url: "https://example.com/game2", label: "Play Now" },
-  { url: "https://example.com/game3", label: "Play Now" },
+  { url: "https://t.co/AYPBoL1jyb", label: "Play Now" },
+  { url: "https://vibeskater.themodernspellbook.com/", label: "Play Now" },
+  { url: "https://rpg.devalien.dev/", label: "Play Now" },
   { url: "https://example.com/game4", label: "Play Now" },
-  { url: "https://example.com/game5", label: "Play Now" },
-  { url: "https://example.com/game6", label: "Play Now" },
-  { url: "https://example.com/game7", label: "Play Now" },
+  { url: "https://mow.survibe.xyz/", label: "Play Now" },
+  { url: "https://redlightgreenlight-1061766046734.us-central1.run.app/", label: "Play Now" },
+  { url: "https://typenoon.com/", label: "Play Now" },
   { url: "https://example.com/game8", label: "Play Now" },
   { url: "https://example.com/game9", label: "Play Now" },
   { url: "https://example.com/game10", label: "Play Now" },

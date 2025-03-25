@@ -271,6 +271,36 @@ The animation creates a dynamic "assembly" effect where the logo parts fly in fr
 
 ---
 
+_**User**_
+
+can you do it little small
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+_****_
+
+I'll modify the ScreenLoader component to make the logo animation smaller:
+
+---
+
+_****_
+
+Cancelled
+
+---
+
+_****_
+
+
+
+---
+
 
 
 ---

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import Cover from "@/app/assets/robots/robot-4.jpg"
+import Cover from "@/app/assets/robots/levelsio.jpg"
 import { cn } from "@/lib/utils"
 import gsap from "gsap"
 import { ArrowRight } from "lucide-react"

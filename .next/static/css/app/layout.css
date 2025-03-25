@@ -1686,6 +1686,9 @@ video {
 .pt-\[80\%\] {
   padding-top: 80%;
 }
+.pt-\[20\%\] {
+  padding-top: 20%;
+}
 .text-center {
   text-align: center;
 }
@@ -1744,6 +1747,10 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 .font-bold {
   font-weight: 700;

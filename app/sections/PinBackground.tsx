@@ -13,8 +13,8 @@ export default function PinBackground() {
           "relative z-10 flex h-[150vh] w-screen flex-col items-center bg-black px-[4%] lg:flex-row"
         )}
       >
-        <div className="m-auto hidden pt-[30%] text-9xl font-extrabold uppercase text-gray-300 md:block">
-          talent or
+        <div className="m-auto hidden pt-[30%] text-8xl font-extrabold uppercase text-gray-300 md:block">
+          vibecode or
         </div>
         <div className="m-auto block pt-[30%] text-9xl font-extrabold uppercase text-gray-300 opacity-20 md:hidden md:opacity-100">
           01
