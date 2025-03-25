@@ -3,6 +3,8 @@
 import { useEffect } from "react"
 import Cover from "@/app/assets/bg-2-hd.png"
 import Star from "@/app/assets/star.svg"
+import BoltLogo from "@/app/assets/sponsers/bolt.svg"
+import CodeRabbitLogo from "@/app/assets/sponsers/coderabbit.svg"
 import { cn } from "@/lib/utils"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
@@ -77,6 +79,35 @@ export default function HeroSection() {
       },
       "-=2.2"
     )
+
+    // Add animation for sponsors
+    heroTimeline.fromTo(
+      ".sponsors-section",
+      {
+        opacity: 0,
+        x: 50,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+      },
+      "-=2"
+    )
+
+    heroTimeline.fromTo(
+      ".sponsor-item",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+      },
+      "-=1.5"
+    )
   }, [])
 
   /* Scroll Trigger */
@@ -125,6 +156,19 @@ export default function HeroSection() {
       xPercent: -40,
     })
 
+    // Add scroll animation for sponsors
+    gsap.to(".sponsors-section", {
+      scrollTrigger: {
+        trigger: "#pin-initial-section",
+        start: "10% bottom",
+        end: "bottom bottom",
+        scrub: true,
+      },
+      ease: "power1.inOut",
+      xPercent: 40,
+      opacity: 0,
+    })
+
     ScrollTrigger.create({
       trigger: "#pin-initial-section",
       start: "top bottom",
@@ -170,6 +214,31 @@ export default function HeroSection() {
         </div>
         <div className="hero-title ml-[10%] text-[4.5rem] font-extrabold leading-[1] tracking-tighter text-white md:ml-[20%] md:text-[5rem] lg:text-[7.2rem]">
           20<span className="title-stroke">25</span>
+        </div>
+      </div>
+
+      {/* Sponsors Section */}
+      <div className="sponsors-section absolute right-10 top-1/2 flex -translate-y-1/2 flex-col items-end gap-6 md:right-16 lg:gap-8">
+        <div className="flex flex-col items-end gap-2">
+          <p className={cn(SyneFont.className, "text-sm font-bold text-white md:text-base")}>SPONSORED BY</p>
+          <div className="flex flex-col gap-6">
+            <div className="sponsor-item flex flex-col items-end gap-2">
+              <a href="https://bolt.new" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2">
+                <p className={cn(SyneFont.className, "text-xs text-white opacity-80 transition-opacity group-hover:opacity-100 md:text-sm")}>bolt.new</p>
+                <div className="h-10 w-10 overflow-hidden rounded-full transition-transform duration-300 ease-in-out group-hover:scale-110 md:h-12 md:w-12">
+                  <Image src={BoltLogo} alt="Bolt.new" width={48} height={48} className="h-full w-full object-cover" />
+                </div>
+              </a>
+            </div>
+            <div className="sponsor-item flex flex-col items-end gap-2">
+              <a href="https://coderabbitai.com" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2">
+                <p className={cn(SyneFont.className, "text-xs text-white opacity-80 transition-opacity group-hover:opacity-100 md:text-sm")}>coderabbitai</p>
+                <div className="h-10 w-10 overflow-hidden rounded-full transition-transform duration-300 ease-in-out group-hover:scale-110 md:h-12 md:w-12">
+                  <Image src={CodeRabbitLogo} alt="CodeRabbitAI" width={48} height={48} className="h-full w-full object-cover" />
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
