@@ -60,6 +60,7 @@ export const AgdasimaFont = Agdasima({
 export const AfacadFont = Afacad({
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700"]
 })
 
 export const SchibstedFont = Schibsted_Grotesk({

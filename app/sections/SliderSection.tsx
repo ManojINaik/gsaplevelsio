@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import AndrejKarpathy from "@/app/assets/robots/AndrejKarpathy.jpg"
 import PieterLevels from "@/app/assets/robots/PieterLevels.png"
-import TimSoret from "@/app/assets/robots/TimSoret.jpg"
+import TimSoret from "@/app/assets/robots/timsoret.jpg"
 import RicardoCabello from "@/app/assets/robots/RicardoCabello.jpg"
 import SakuK from "@/app/assets/robots/SakuK.jpg"
 import { cn } from "@/lib/utils"
