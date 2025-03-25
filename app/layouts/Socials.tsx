@@ -11,7 +11,7 @@ const TWITTER_LINK = "https://twitter.com/hashtag/vibejam"
 const JUDGES_LINK = "#slider-section"
 const ABOUT_LINK = "#bio-section-container"
 const GAMES_LINK = "#images-section-container"
-const SUBMIT_LINK = "https://vibejam-site.vercel.app/"
+const SUBMIT_LINK = "https://jam.pieter.com/"
 
 export default function Socials() {
   const [whiteBg, setWhiteBg] = useState(false)
