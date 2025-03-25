@@ -970,7 +970,37 @@ _****_
 
 _****_
 
-I've removed the extra "Games" navigation link from the header. The navigation will now only have the main logo, an
+I've removed the extra "Games" navigation link from the header. The navigation will now only have the main logo, and users can still access the games page through the "Explore All Games" button on the homepage that we previously implemented.
+
+---
+
+_**User**_
+
+can you move this logo little upside
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+_****_
+
+I'll adjust the logo position to move it a bit higher on the page.
+
+---
+
+_****_
+
+Cancelled
+
+---
+
+_****_
+
+
 
 ---
 

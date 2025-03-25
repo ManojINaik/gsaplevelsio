@@ -17,7 +17,8 @@ import gsap from "gsap"
 import Image from "next/image"
 import { AfacadFont, PoppinFont } from "../fonts"
 
-const GITHUB_REPO = process.env.GITHUB_REPO
+// Default value for the repo URL
+const GITHUB_REPO = process.env.GITHUB_REPO || "/games"
 
 // Image data with URLs
 const IMAGE_LINKS = [
@@ -66,7 +67,7 @@ const ImageContainer = ({ children, index }: { children: React.ReactNode; index:
 }
 
 export default function ImagesSection() {
-  /* Layout Transition */
+  // Layout Transition
   useEffect(() => {
     gsap.to("#images-section-container", {
       scrollTrigger: {
@@ -104,7 +105,7 @@ export default function ImagesSection() {
     })
   }, [])
 
-  /* Image Scroll */
+  // Image Scroll
   useEffect(() => {
     gsap.to(".left-section", {
       scrollTrigger: {
@@ -127,7 +128,7 @@ export default function ImagesSection() {
     })
   }, [])
 
-  /* Ensure pointer events work */
+  // Ensure pointer events work
   useEffect(() => {
     // First, ensure GSAP doesn't interfere with pointer events
     const style = document.createElement('style');
@@ -167,27 +168,25 @@ export default function ImagesSection() {
               "max-w-[80%] text-center text-5xl font-extrabold tracking-wide text-indigo-400 md:text-7xl lg:max-w-[30%]"
             )}
           >
-            GAMES
+            FEATURED GAMES
           </div>
-          <button
+          
+          <a
+            href="/games"
             className={cn(
-              "flex items-center gap-4 rounded-lg bg-gray-600 px-6 py-2 text-white"
+              "flex items-center gap-4 rounded-lg bg-gray-600 px-6 py-2 text-white hover:bg-gray-700 transition-colors"
             )}
           >
-            <a
-              href={GITHUB_REPO}
-              aria-label="github-repo"
-              target="_blank"
-              rel="noreferrer"
+            <span
               className={cn(
                 "text-sm font-medium tracking-tight",
                 AfacadFont.className
               )}
             >
               View all GAMES
-            </a>
+            </span>
             <GitHubLogoIcon />
-          </button>
+          </a>
         </div>
 
         {/* Images Left */}

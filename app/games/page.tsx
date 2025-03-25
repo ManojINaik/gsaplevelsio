@@ -6,8 +6,10 @@ import { Button } from "@/components/ui/button"
 import { Search, Filter } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { AfacadFont, reckoner } from "../fonts"
+import { AfacadFont, SyneFont, reckoner, SchibstedFont } from "../fonts"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
+import Star from "@/app/assets/star.svg"
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -111,6 +113,14 @@ export default function GamesPage() {
         ease: "power2.out",
         delay: 0.3
       })
+      
+      // Animate marquee
+      gsap.to(".marquee-content", {
+        xPercent: -50,
+        repeat: -1,
+        duration: 25,
+        ease: "linear",
+      })
     })
     
     return () => ctx.revert()
@@ -147,12 +157,149 @@ export default function GamesPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  // Add click outside handler to close filter
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const filterElement = document.querySelector('.filter-dropdown')
+      const filterButton = document.querySelector('.filter-button')
+      if (
+        filterElement && 
+        !filterElement.contains(event.target as Node) && 
+        !filterButton?.contains(event.target as Node)
+      ) {
+        setIsFilterOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
   return (
-    <div className="min-h-screen w-screen bg-[#4338ca] pt-20 pb-20">
+    <div className="h-auto w-screen bg-[#4338ca] relative">
+      {/* Moving bar at the top - similar to Hero section */}
+      <div className="sticky top-0 z-30 flex w-full overflow-hidden bg-gray-900">
+        <div className="marquee-wrapper relative w-full overflow-hidden py-3">
+          <div className="marquee-content flex items-center whitespace-nowrap">
+            <div className="flex items-center gap-8 px-4">
+              <div
+                className={cn(
+                  SyneFont.className,
+                  "flex-none text-xl font-extrabold text-white"
+                )}
+              >
+                AI GAME JAM
+              </div>
+
+              <Image
+                src={Star}
+                className="h-6 w-6 object-contain"
+                alt="star-icon"
+              />
+
+              <div
+                className={cn(
+                  SyneFont.className,
+                  "flex-none text-xl font-extrabold text-white"
+                )}
+              >
+                HOSTED BY @LEVELSIO
+              </div>
+
+              <Image
+                src={Star}
+                className="h-6 w-6 object-contain"
+                alt="star-icon"
+              />
+
+              <div
+                className={cn(
+                  SyneFont.className,
+                  "flex-none text-xl font-extrabold text-white"
+                )}
+              >
+                DEADLINE: APRIL 1, 2025
+              </div>
+
+              <Image
+                src={Star}
+                className="h-6 w-6 object-contain"
+                alt="star-icon"
+              />
+
+              <div
+                className={cn(
+                  SyneFont.className,
+                  "flex-none text-xl font-extrabold text-white"
+                )}
+              >
+                MULTIPLAYER GAMES
+              </div>
+            </div>
+            {/* Duplicate for seamless looping */}
+            <div className="flex items-center gap-8 px-4">
+              <div
+                className={cn(
+                  SyneFont.className,
+                  "flex-none text-xl font-extrabold text-white"
+                )}
+              >
+                AI GAME JAM
+              </div>
+
+              <Image
+                src={Star}
+                className="h-6 w-6 object-contain"
+                alt="star-icon"
+              />
+
+              <div
+                className={cn(
+                  SyneFont.className,
+                  "flex-none text-xl font-extrabold text-white"
+                )}
+              >
+                HOSTED BY @LEVELSIO
+              </div>
+
+              <Image
+                src={Star}
+                className="h-6 w-6 object-contain"
+                alt="star-icon"
+              />
+
+              <div
+                className={cn(
+                  SyneFont.className,
+                  "flex-none text-xl font-extrabold text-white"
+                )}
+              >
+                DEADLINE: APRIL 1, 2025
+              </div>
+
+              <Image
+                src={Star}
+                className="h-6 w-6 object-contain"
+                alt="star-icon"
+              />
+
+              <div
+                className={cn(
+                  SyneFont.className,
+                  "flex-none text-xl font-extrabold text-white"
+                )}
+              >
+                MULTIPLAYER GAMES
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container relative mx-auto px-4 py-16 pt-32">
         <h1 className={cn(
-          "page-title text-center text-5xl md:text-7xl font-bold text-white mb-8",
+          "page-title text-center text-[4.5rem] md:text-[5rem] lg:text-[7.2rem] font-extrabold tracking-tighter text-white mb-8",
           reckoner.className
         )}>
           VIBE GAMES
@@ -166,7 +313,7 @@ export default function GamesPage() {
         </p>
         
         {/* Search and Filter Section */}
-        <div className="search-filter-section flex flex-col md:flex-row gap-4 mb-16 max-w-4xl mx-auto">
+        <div className="search-filter-section relative z-50 flex flex-col md:flex-row gap-4 mb-16 max-w-4xl mx-auto">
           <div className="relative flex-grow">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-white/60" size={18} />
             <Input 
@@ -180,29 +327,32 @@ export default function GamesPage() {
           <div className="relative">
             <Button 
               onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="bg-white/10 hover:bg-white/20 text-white rounded-full h-12 px-6 flex items-center gap-2"
+              className="filter-button bg-white/10 hover:bg-white/20 text-white rounded-full h-12 px-6 flex items-center gap-2"
             >
               <Filter size={18} />
-              <span>Filters {activeFilters.length > 0 && `(${activeFilters.length})`}</span>
+              <span className={SchibstedFont.className}>Filters {activeFilters.length > 0 && `(${activeFilters.length})`}</span>
             </Button>
             
             {isFilterOpen && (
-              <div className="absolute right-0 mt-2 w-64 bg-[#2d2a8f] rounded-lg shadow-lg p-4 z-10">
-                <h3 className="text-white font-bold mb-2">Game Categories</h3>
-                <div className="flex flex-wrap gap-2">
-                  {filterOptions.map(filter => (
-                    <button
-                      key={filter}
-                      onClick={() => toggleFilter(filter)}
-                      className={`px-3 py-1 rounded-full text-xs ${
-                        activeFilters.includes(filter)
-                          ? "bg-white text-[#4338ca]"
-                          : "bg-white/20 text-white"
-                      }`}
-                    >
-                      {filter}
-                    </button>
-                  ))}
+              <div className="filter-dropdown absolute right-0 mt-2 w-80 bg-[#2d2a8f] rounded-2xl shadow-2xl p-6 z-[9999]">
+                <div className="relative">
+                  <h3 className={cn("text-white text-lg font-bold mb-4", SyneFont.className)}>Game Categories</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {filterOptions.map(filter => (
+                      <button
+                        key={filter}
+                        onClick={() => toggleFilter(filter)}
+                        className={cn(
+                          "px-4 py-2 rounded-full text-sm transition-all duration-200",
+                          activeFilters.includes(filter)
+                            ? "bg-white text-[#4338ca] font-medium shadow-lg"
+                            : "bg-white/10 text-white hover:bg-white/20"
+                        )}
+                      >
+                        {filter}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
@@ -210,79 +360,81 @@ export default function GamesPage() {
         </div>
         
         {/* Games Grid */}
-        {loading ? (
-          <div className="flex justify-center items-center min-h-[400px]">
-            <div className="animate-pulse text-white text-lg">Loading games...</div>
-          </div>
-        ) : filteredGames.length > 0 ? (
-          <>
-            <div className="games-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredGames.map((game) => (
-                <div key={game.id} className="game-card group">
-                  <a href={game.url} className="block bg-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg">
-                    <div className="relative aspect-[16/10] overflow-hidden">
-                      <img
-                        src={game.thumbnail}
-                        alt={game.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#4338ca]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    <div className="p-4">
-                      <h3 className={cn(
-                        "text-xl font-bold text-white mb-1 truncate",
-                        reckoner.className
-                      )}>
-                        {game.title}
-                      </h3>
-                      <p className="text-white/70 text-sm mb-3">By {game.creator}</p>
-                      <div className="flex flex-wrap gap-2 mb-2">
-                        {game.tags.map((tag) => (
-                          <span
-                            key={`${game.id}-${tag}`}
-                            className="bg-white/20 text-white/90 text-xs px-2 py-1 rounded-full"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+        <div className="relative z-10">
+          {loading ? (
+            <div className="flex justify-center items-center min-h-[400px]">
+              <div className={cn("animate-pulse text-white text-lg", AfacadFont.className)}>Loading games...</div>
+            </div>
+          ) : filteredGames.length > 0 ? (
+            <>
+              <div className="games-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {filteredGames.map((game) => (
+                  <div key={game.id} className="game-card group">
+                    <a href={game.url} className="block bg-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.03] hover:shadow-xl">
+                      <div className="relative aspect-[16/10] overflow-hidden">
+                        <img
+                          src={game.thumbnail}
+                          alt={game.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#4338ca]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
-                    </div>
-                  </a>
-                </div>
-              ))}
-            </div>
-            
-            {/* Pagination */}
-            <div className="flex justify-center items-center mt-16">
-              <div className="flex gap-2">
-                <Button
-                  onClick={() => goToPage(currentPage - 1)}
-                  disabled={currentPage === 1}
-                  className="bg-white/10 hover:bg-white/20 text-white disabled:opacity-50"
-                >
-                  Previous
-                </Button>
-                
-                <div className="flex items-center px-4 bg-white/10 rounded-md text-white">
-                  Page {currentPage} of {totalPages}
-                </div>
-                
-                <Button
-                  onClick={() => goToPage(currentPage + 1)}
-                  disabled={currentPage === totalPages}
-                  className="bg-white/10 hover:bg-white/20 text-white disabled:opacity-50"
-                >
-                  Next
-                </Button>
+                      <div className="p-4">
+                        <h3 className={cn(
+                          "text-xl font-bold text-white mb-1 truncate",
+                          reckoner.className
+                        )}>
+                          {game.title}
+                        </h3>
+                        <p className={cn("text-white/70 text-sm mb-3", AfacadFont.className)}>By {game.creator}</p>
+                        <div className="flex flex-wrap gap-2 mb-2">
+                          {game.tags.map((tag) => (
+                            <span
+                              key={`${game.id}-${tag}`}
+                              className={cn("bg-white/20 text-white/90 text-xs px-2 py-1 rounded-full", SchibstedFont.className)}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                ))}
               </div>
+              
+              {/* Pagination */}
+              <div className="flex justify-center items-center mt-16">
+                <div className="flex gap-2">
+                  <Button
+                    onClick={() => goToPage(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className={cn("bg-white/10 hover:bg-white/20 text-white disabled:opacity-50", SyneFont.className)}
+                  >
+                    Previous
+                  </Button>
+                  
+                  <div className={cn("flex items-center px-4 bg-white/10 rounded-md text-white", SyneFont.className)}>
+                    Page {currentPage} of {totalPages}
+                  </div>
+                  
+                  <Button
+                    onClick={() => goToPage(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className={cn("bg-white/10 hover:bg-white/20 text-white disabled:opacity-50", SyneFont.className)}
+                  >
+                    Next
+                  </Button>
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-16 text-white">
+              <h3 className={cn("text-2xl font-bold mb-2", reckoner.className)}>No games found</h3>
+              <p className={AfacadFont.className}>Try adjusting your search or filters</p>
             </div>
-          </>
-        ) : (
-          <div className="text-center py-16 text-white">
-            <h3 className="text-2xl font-bold mb-2">No games found</h3>
-            <p>Try adjusting your search or filters</p>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   )

@@ -21,7 +21,7 @@ export default function Header() {
         <svg
           width="150"
           height="150"
-          className="header-icon relative top-[-14px] hidden scale-50 overflow-visible"
+          className="header-icon relative top-[-24px] hidden scale-50 overflow-visible"
           viewBox="0 0 52 66"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
