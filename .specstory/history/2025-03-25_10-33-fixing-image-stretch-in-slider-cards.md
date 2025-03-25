@@ -98,7 +98,7 @@ Looking at the screenshot, I can see that the `object-cover` property isn't prov
       <div
         className={cn(SyneFont.className, "text-[10px] text-white")}
       >
-        ShinThant
+        ManojINaik
       </div>
     </div>
   </div>

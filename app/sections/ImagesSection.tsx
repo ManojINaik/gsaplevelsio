@@ -12,7 +12,6 @@ import Image8 from "@/app/assets/kid-robot/robot-8.jpg"
 import Image9 from "@/app/assets/kid-robot/robot-9.jpg"
 import Image10 from "@/app/assets/kid-robot/robot-10.jpg"
 import { cn } from "@/lib/utils"
-import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import gsap from "gsap"
 import Image from "next/image"
 import { AfacadFont, PoppinFont } from "../fonts"
@@ -185,7 +184,6 @@ export default function ImagesSection() {
             >
               View all GAMES
             </span>
-            <GitHubLogoIcon />
           </a>
         </div>
 

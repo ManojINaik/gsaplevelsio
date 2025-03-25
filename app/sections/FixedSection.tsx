@@ -1,4 +1,4 @@
-import { GitHubLogoIcon } from "@radix-ui/react-icons"
+import { GitHubLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons"
 
 const GITHUB_REPO = process.env.GITHUB_REPO
 
@@ -12,9 +12,9 @@ export default function FixedSection() {
         className="awward-name flex h-fit w-10 flex-col items-center justify-between gap-8 bg-[#a3e635] px-2 py-4"
         rel="noreferrer"
       >
-        <GitHubLogoIcon className="awward-text" width={20} height={20} />
+        <TwitterLogoIcon className="awward-text" width={20} height={20} />
         <p className="awward-text text-sm font-semibold tracking-tighter text-black [writing-mode:vertical-lr]">
-          ShinThant
+          @Bruxly_
         </p>
       </a>
     </div>

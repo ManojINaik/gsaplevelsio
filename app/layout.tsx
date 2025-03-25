@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     "Animations",
   ],
   category: "technology",
-  authors: [{ name: "devshinthant", url: "https://devshinthant.vercel.app/" }],
-  creator: "devshinthant",
-  publisher: "devshinthant",
+  authors: [{ name: "devManojINaik", url: "https://devManojINaik.vercel.app/" }],
+  creator: "devManojINaik",
+  publisher: "devManojINaik",
   openGraph: {
     title: "Motion Scape Gsap",
     description:
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "Motion Scape",
     description:
       "Motion Scape is a visually dynamic website dedicated to the art of animations and transitions in web design. Created to inspire designers and developers, it showcases a variety of smooth, immersive motion effects that add elegance and interactivity to digital experiences.",
-    creator: "devshinthant",
+    creator: "devManojINaik",
     images: {
       url: "https://i.postimg.cc/4yGnps76/Screenshot-2024-10-29-at-11-07-25-AM.png",
       alt: "Motion Scape",

@@ -108,9 +108,9 @@ export default function BioSection() {
           <div className="relative flex h-full flex-1 flex-col items-center justify-center">
             <div className="absolute left-0 top-0 flex w-full items-center gap-28">
               <div className="text-xs font-semibold tracking-widest text-white">
-                0001/
+                VIBECODE/
               </div>
-              <div className="text-xs tracking-widest text-white">Project</div>
+              <div className="text-xs tracking-widest text-white">GAME</div>
             </div>
 
             <div className="mt-10 w-full md:w-3/4 lg:mt-0">
@@ -125,9 +125,9 @@ export default function BioSection() {
           <div className="relative flex h-full w-full flex-col items-center justify-center lg:w-[40%] lg:pr-20">
             <div className="absolute left-0 top-0 flex w-full items-center gap-28">
               <div className="text-xs font-semibold tracking-widest text-white">
-                0001/
+                VIBECODE/
               </div>
-              <div className="text-xs tracking-widest text-white">Project</div>
+              <div className="text-xs tracking-widest text-white">GAME</div>
             </div>
 
             <div className="mt-10 flex w-full flex-col items-start gap-10 lg:mt-0">
