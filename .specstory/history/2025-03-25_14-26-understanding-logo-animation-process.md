@@ -713,6 +713,232 @@ I've adjusted the logo position to move it higher up. Changed the top value from
 
 ---
 
+_**User**_
+
+@ScreenLoader.tsx make this animation beautiful,nice and smooth
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+_****_
+
+```diff
+      gsap.to(".loader-screen", {
+        height: 0,
+-       duration: 0.6,
+-       delay: 2,
+- 
++       duration: 0.8,
++       delay: 2.2,
++       ease: "power3.inOut",
+        onComplete: () => {
+          enableScroll()
+      const timeline = gsap.timeline({
+        defaults: {
+-         duration: 1.5,
++         duration: 1.2,
++         ease: "power2.out",
+        },
+      })
+  
+-     timeline.fromTo(".screen-loader-icon", { rotate: 360 }, { rotate: 0 })
+- 
++     // Initial subtle appearance
++     timeline.fromTo(".screen-loader-icon", 
++       { 
++         opacity: 0,
++         scale: 0.7,
++       }, 
++       { 
++         opacity: 1,
++         scale: 1,
++         duration: 0.8,
++         ease: "back.out(1.7)"
++       }
++     )
++ 
++     // Elegant rotation
++     timeline.fromTo(".screen-loader-icon", 
++       { 
++         rotate: 15
++       }, 
++       { 
++         rotate: 0,
++         duration: 1.2,
++         ease: "elastic.out(1, 0.3)"
++       }, 
++       "-=0.4"
++     )
++ 
++     // First path animation with bounce
+      timeline.fromTo(
+        "#loader-path-2",
+        {
+-         x: -80,
+-         y: -50,
++         x: -60,
++         y: -30,
+          opacity: 0,
+-         ease: "power1.inOut",
++         scale: 0.9,
++         ease: "back.out(1.4)",
+        },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
++         scale: 1,
++         duration: 1.1,
+        },
+-       "<"
++       "-=0.9"
+      )
+  
++     // Second path animation with slight delay
+      timeline.fromTo(
+        "#loader-inner-1",
+        {
+-         x: -40,
+-         y: -40,
++         x: -30,
++         y: -20,
+          opacity: 0,
+-         ease: "power1.inOut",
++         scale: 0.8,
++         ease: "back.out(1.7)",
+        },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
++         scale: 1,
+          duration: 1.2,
+        },
+-       "<"
++       "-=0.8"
++     )
++ 
++     // Subtle glow effect
++     timeline.fromTo(
++       ".screen-loader-icon",
++       {
++         filter: "brightness(1)",
++       },
++       {
++         filter: "brightness(1.5)",
++         duration: 0.4,
++         ease: "sine.inOut",
++       },
++       "+=0.1"
++     )
++ 
++     // Elegant fade pulse
++     timeline.to(
++       ".screen-loader-icon",
++       {
++         opacity: 0.7,
++         duration: 0.3,
++         ease: "sine.inOut",
++       },
++       "+=0.1"
+      )
+  
+      timeline.to(
+        ".screen-loader-icon",
+        {
+-         opacity: 0.1,
++         opacity: 1,
+          duration: 0.3,
+-       },
+-       "-=0.2"
+-     )
+- 
+-     timeline.to(".screen-loader-icon", {
+-       opacity: 1,
+-       duration: 0.1,
+-     })
+- 
++         filter: "brightness(1)",
++         ease: "power1.out",
++       }
++     )
++ 
++     // Final fluid animation
+      timeline.fromTo(
+        ".screen-loader-icon",
+        {
+-         rotate: 180,
++         rotate: 0,
+          scale: 1,
+        },
+        {
+-         scale: 0.5,
++         scale: 0.55,
++         rotate: -5,
++         y: 40,
++         duration: 0.7,
++         ease: "power3.inOut",
++       },
++       "+=0.2"
++     )
++ 
++     // Settling animation
++     timeline.to(
++       ".screen-loader-icon",
++       {
+          rotate: 0,
+-         y: 60,
+-         duration: 0.5,
+-       },
+-       "+=0.4"
++         duration: 0.4,
++         ease: "back.out(2)",
++       }
+      )
+    }, [])
+```
+
+---
+
+_****_
+
+I've enhanced the logo animation to make it more beautiful, smooth and elegant. Here's what the improved animation does:
+
+1. **Improved Initial Entrance:**
+   - Logo now fades in with a subtle scale-up effect using a bouncy "back" easing
+   - Added a gentle elastic rotation effect for a more organic feel
+
+2. **More Refined Path Animations:**
+   - Each path element now enters with subtle scaling
+   - Used "back.out" easing for a slight bounce at the end of movement
+   - Better timing and overlapping of animations for a more fluid sequence
+   - Reduced the distance of movement for a more controlled appearance
+
+3. **Enhanced Visual Effects:**
+   - Added a subtle brightness glow that peaks and fades
+   - Replaced the harsh flash with a gentler opacity pulse
+   - More natural easing functions throughout
+
+4. **Improved Final Animation:**
+   - More fluid scale and position transition
+   - Added a slight rotation during movement
+   - Added a final settling animation with a small bounce for a polished finish
+
+5. **Overall Timing Improvements:**
+   - Better overlap between animation segments
+   - More carefully timed pauses
+   - Slightly longer overall animation for more visual impact
+   - Smoother exit transition with improved easing
+
+These changes create a more refined, professional animation that feels natural and elegant while maintaining the distinctive character of your logo.
+
+---
+
 
 
 ---

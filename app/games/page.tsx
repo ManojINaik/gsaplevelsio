@@ -176,7 +176,7 @@ export default function GamesPage() {
   }, [])
 
   return (
-    <div className="h-auto w-screen bg-[#4338ca] relative">
+    <div className="h-auto w-screen bg-[#000000] relative">
       {/* Moving bar at the top - similar to Hero section */}
       <div className="sticky top-0 z-30 flex w-full overflow-hidden bg-gray-900">
         <div className="marquee-wrapper relative w-full overflow-hidden py-3">

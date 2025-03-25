@@ -10,9 +10,9 @@ export default function ScreenLoader() {
 
     gsap.to(".loader-screen", {
       height: 0,
-      duration: 0.6,
-      delay: 2,
-
+      duration: 0.8,
+      delay: 2.2,
+      ease: "power3.inOut",
       onComplete: () => {
         enableScroll()
         gsap.set(".loader-screen", {
@@ -25,72 +25,138 @@ export default function ScreenLoader() {
   useEffect(() => {
     const timeline = gsap.timeline({
       defaults: {
-        duration: 1.5,
+        duration: 1.2,
+        ease: "power2.out",
       },
     })
 
-    timeline.fromTo(".screen-loader-icon", { rotate: 360 }, { rotate: 0 })
+    // Initial subtle appearance
+    timeline.fromTo(".screen-loader-icon", 
+      { 
+        opacity: 0,
+        scale: 0.7,
+      }, 
+      { 
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: "back.out(1.7)"
+      }
+    )
 
+    // Elegant rotation
+    timeline.fromTo(".screen-loader-icon", 
+      { 
+        rotate: 15
+      }, 
+      { 
+        rotate: 0,
+        duration: 1.2,
+        ease: "elastic.out(1, 0.3)"
+      }, 
+      "-=0.4"
+    )
+
+    // First path animation with bounce
     timeline.fromTo(
       "#loader-path-2",
       {
-        x: -80,
-        y: -50,
+        x: -60,
+        y: -30,
         opacity: 0,
-        ease: "power1.inOut",
+        scale: 0.9,
+        ease: "back.out(1.4)",
       },
       {
         x: 0,
         y: 0,
         opacity: 1,
+        scale: 1,
+        duration: 1.1,
       },
-      "<"
+      "-=0.9"
     )
 
+    // Second path animation with slight delay
     timeline.fromTo(
       "#loader-inner-1",
       {
-        x: -40,
-        y: -40,
+        x: -30,
+        y: -20,
         opacity: 0,
-        ease: "power1.inOut",
+        scale: 0.8,
+        ease: "back.out(1.7)",
       },
       {
         x: 0,
         y: 0,
         opacity: 1,
+        scale: 1,
         duration: 1.2,
       },
-      "<"
+      "-=0.8"
+    )
+
+    // Subtle glow effect
+    timeline.fromTo(
+      ".screen-loader-icon",
+      {
+        filter: "brightness(1)",
+      },
+      {
+        filter: "brightness(1.5)",
+        duration: 0.4,
+        ease: "sine.inOut",
+      },
+      "+=0.1"
+    )
+
+    // Elegant fade pulse
+    timeline.to(
+      ".screen-loader-icon",
+      {
+        opacity: 0.7,
+        duration: 0.3,
+        ease: "sine.inOut",
+      },
+      "+=0.1"
     )
 
     timeline.to(
       ".screen-loader-icon",
       {
-        opacity: 0.1,
+        opacity: 1,
         duration: 0.3,
-      },
-      "-=0.2"
+        filter: "brightness(1)",
+        ease: "power1.out",
+      }
     )
 
-    timeline.to(".screen-loader-icon", {
-      opacity: 1,
-      duration: 0.1,
-    })
-
+    // Final fluid animation
     timeline.fromTo(
       ".screen-loader-icon",
       {
-        rotate: 180,
+        rotate: 0,
         scale: 1,
       },
       {
-        scale: 0.5,
-        rotate: 0,
-        y: 60,
-        duration: 0.5,
+        scale: 0.55,
+        rotate: -5,
+        y: 40,
+        duration: 0.7,
+        ease: "power3.inOut",
       },
-      "+=0.4"
+      "+=0.2"
+    )
+
+    // Settling animation
+    timeline.to(
+      ".screen-loader-icon",
+      {
+        rotate: 0,
+        duration: 0.4,
+        ease: "back.out(2)",
+      }
     )
   }, [])
 
