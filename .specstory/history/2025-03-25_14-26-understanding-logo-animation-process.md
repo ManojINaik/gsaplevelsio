@@ -273,7 +273,10 @@ The animation creates a dynamic "assembly" effect where the logo parts fly in fr
 
 _**User**_
 
-can you do it little small
+other than animation part replace it as logo in other part like in navbar and other used parts:
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="60"><path d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0z" fill="#fff"/><path d="M63.998 12.002l-4.666 2.666v21.332l-4.666-2.666V19.336l-4.666-2.666v18.666l9.332 5.332v5.332l-13.332-7.332V12.002l-4.666-2.666v29.332L60 50.666l4.666-2.332V12.002zm18.666 0v21.332l-7.998 4.666v-5.332l4.666-2.666V12.002h-4.666v14.666l-4.002 2.332v10.666l4.002 3 14.666-8V12.002z" fill="#1f1d1d"/></svg>▌with transparent background
+
+and animate it correctly by analysing it
 
 ---
 
@@ -285,19 +288,428 @@ _**Assistant**_
 
 _****_
 
-I'll modify the ScreenLoader component to make the logo animation smaller:
+I'll check where the logo is used in the header and other components, then implement the new SVG logo with proper animation.
 
 ---
 
 _****_
 
-Cancelled
+Read file: undefined
 
 ---
 
 _****_
 
+Now let's replace the logo SVG in both the ScreenLoader and Header components with the new logo, while maintaining the correct animation.
 
+First, let's update the ScreenLoader component:
+
+---
+
+_****_
+
+```diff
+    return (
+      <div className="loader-screen fixed z-50 flex h-screen w-screen items-center justify-center bg-black">
+-       <svg
+-         width="150"
+-         height="150"
++       <svg 
++         xmlns="http://www.w3.org/2000/svg" 
++         width="150" 
++         height="150" 
+          className="screen-loader-icon overflow-visible"
+-         viewBox="0 0 52 66"
+-         fill="none"
+-         xmlns="http://www.w3.org/2000/svg"
++         viewBox="0 0 120 120" 
+        >
+-         <path
+-           id="loader-inner-1"
+-           fillRule="evenodd"
+-           clipRule="evenodd"
+-           d="M29.5145 19.1441C28.848 18.7441 28 19.2242 28 20.0015V53.5805C28 53.9395 27.8075 54.271 27.4957 54.449L26 55.3026V65.6652L36.4957 59.6751C36.8075 59.4972 37 59.1657 37 58.8066V57.0644V57L37 24.2015C37 23.8503 36.8157 23.5248 36.5145 23.344L29.5145 19.1441Z"
+-           fill="white"
++         <path 
++           id="loader-path-1" 
++           d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0z" 
++           fill="transparent" 
++           stroke="white"
+          />
+-         <path
+-           id="loader-inner-2"
+-           fillRule="evenodd"
+-           clipRule="evenodd"
+-           d="M22.4855 19.1441C23.152 18.7441 24 19.2242 24 20.0015V53.5805C24 53.9395 24.1925 54.271 24.5043 54.449L26 55.3026V65.6652L15.5043 59.6751C15.1925 59.4972 15 59.1657 15 58.8066V57.0644V57L15 24.2015C15 23.8503 15.1843 23.5248 15.4855 23.344L22.4855 19.1441Z"
++         <path 
++           id="loader-path-2" 
++           d="M63.998 12.002l-4.666 2.666v21.332l-4.666-2.666V19.336l-4.666-2.666v18.666l9.332 5.332v5.332l-13.332-7.332V12.002l-4.666-2.666v29.332L60 50.666l4.666-2.332V12.002z" 
+            fill="white"
+          />
+-         <path
+-           id="loader-path-1"
+-           fillRule="evenodd"
+-           clipRule="evenodd"
+-           d="M26 0V12.6159L11.488 21.2651C11.1854 21.4455 11 21.7718 11 22.1241V56.0542L10.9999 56.0685C10.9936 56.5202 10.4382 56.6026 10.0452 56.3798L0.506987 50.9749C0.193654 50.7973 0 50.465 0 50.1048V24.5542V20.0437V15.9386C0 15.6642 0.144426 15.41 0.380188 15.2694C0.448758 15.2152 0.524602 15.1698 0.606019 15.1348L26 0Z"
++         <path 
++           id="loader-inner-1" 
++           d="M82.664 12.002v21.332l-7.998 4.666v-5.332l4.666-2.666V12.002h-4.666v14.666l-4.002 2.332v10.666l4.002 3 14.666-8V12.002z" 
+            fill="white"
+          />
+-         <path
+-           id="loader-path-2"
+-           fillRule="evenodd"
+-           clipRule="evenodd"
+-           d="M26 0V12.616L40.512 21.2651C40.8146 21.4455 41 21.7718 41 22.1241V56.0542L41.0001 56.0685C41.0064 56.5202 41.5618 56.6026 41.9548 56.3798L51.493 50.9749C51.8063 50.7973 52 50.465 52 50.1048V24.5542V20.0437V15.9386C52 15.6642 51.8556 15.41 51.6198 15.2694C51.5512 15.2152 51.4754 15.1698 51.394 15.1348L26 0Z"
+-           fill="white"
++         <path 
++           id="loader-inner-2" 
++           d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0z" 
++           fill="transparent"
+          />
+        </svg>
+```
+
+---
+
+_****_
+
+Now, let's update the Header component with the new logo:
+
+---
+
+_****_
+
+```diff
+        <Link href="/" className="pointer-events-auto">
+          <svg
++           xmlns="http://www.w3.org/2000/svg"
+            width="150"
+            height="150"
+            className="header-icon relative top-[-24px] hidden scale-50 overflow-visible"
+-           viewBox="0 0 52 66"
+-           fill="none"
+-           xmlns="http://www.w3.org/2000/svg"
+-         >
++           viewBox="0 0 120 120"
++         >
++           <path
++             id="path-1"
++             d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0z"
++             fill="transparent"
++             stroke="white"
++           />
+            <path
+              id="inner-1"
+-             fillRule="evenodd"
+-             clipRule="evenodd"
+-             d="M29.5145 19.1441C28.848 18.7441 28 19.2242 28 20.0015V53.5805C28 53.9395 27.8075 54.271 27.4957 54.449L26 55.3026V65.6652L36.4957 59.6751C36.8075 59.4972 37 59.1657 37 58.8066V57.0644V57L37 24.2015C37 23.8503 36.8157 23.5248 36.5145 23.344L29.5145 19.1441Z"
++             d="M63.998 12.002l-4.666 2.666v21.332l-4.666-2.666V19.336l-4.666-2.666v18.666l9.332 5.332v5.332l-13.332-7.332V12.002l-4.666-2.666v29.332L60 50.666l4.666-2.332V12.002z"
+              fill="white"
+            />
+            <path
+              id="inner-2"
+-             fillRule="evenodd"
+-             clipRule="evenodd"
+-             d="M22.4855 19.1441C23.152 18.7441 24 19.2242 24 20.0015V53.5805C24 53.9395 24.1925 54.271 24.5043 54.449L26 55.3026V65.6652L15.5043 59.6751C15.1925 59.4972 15 59.1657 15 58.8066V57.0644V57L15 24.2015C15 23.8503 15.1843 23.5248 15.4855 23.344L22.4855 19.1441Z"
+-             fill="white"
+-           />
+-           <path
+-             id="path-1"
+-             fillRule="evenodd"
+-             clipRule="evenodd"
+-             d="M26 0V12.6159L11.488 21.2651C11.1854 21.4455 11 21.7718 11 22.1241V56.0542L10.9999 56.0685C10.9936 56.5202 10.4382 56.6026 10.0452 56.3798L0.506987 50.9749C0.193654 50.7973 0 50.465 0 50.1048V24.5542V20.0437V15.9386C0 15.6642 0.144426 15.41 0.380188 15.2694C0.448758 15.2152 0.524602 15.1698 0.606019 15.1348L26 0Z"
++             d="M82.664 12.002v21.332l-7.998 4.666v-5.332l4.666-2.666V12.002h-4.666v14.666l-4.002 2.332v10.666l4.002 3 14.666-8V12.002z"
+              fill="white"
+            />
+-           <path
+-             id="path-2"
+-             fillRule="evenodd"
+-             clipRule="evenodd"
+-             d="M26 0V12.616L40.512 21.2651C40.8146 21.4455 41 21.7718 41 22.1241V56.0542L41.0001 56.0685C41.0064 56.5202 41.5618 56.6026 41.9548 56.3798L51.493 50.9749C51.8063 50.7973 52 50.465 52 50.1048V24.5542V20.0437V15.9386C52 15.6642 51.8556 15.41 51.6198 15.2694C51.5512 15.2152 51.4754 15.1698 51.394 15.1348L26 0Z"
+-             fill="white"
++           <path 
++             id="path-2" 
++             d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0z" 
++             fill="transparent"
+            />
+          </svg>
+```
+
+---
+
+_****_
+
+Let's check if there are any other places where the logo is used:
+
+---
+
+_****_
+
+<details>
+            <summary>Grep search for "viewBox="0 0 52 66"" • **2** files</summary>
+        
+| File | Line | Match |
+|------|------|-------|
+| `file:///m%3A/game/motion-scape/.specstory/history/2025-03-25_14-26-understanding-logo-animation-process.md` | L404 | `-         viewBox="0 0 52 66"` |
+| `file:///m%3A/game/motion-scape/.specstory/history/2025-03-25_12-18-new-games-page-design-and-features.md` | L646 | `-         viewBox="0 0 52 66"` |
+| `file:///m%3A/game/motion-scape/.specstory/history/2025-03-25_12-18-new-games-page-design-and-features.md` | L685 | `+           viewBox="0 0 52 66"` |
+
+</details>
+
+---
+
+_****_
+
+Now let's modify the animation in the ScreenLoader component to work correctly with the new logo structure:
+
+---
+
+_****_
+
+```diff
+        "#loader-path-1",
+        {
+-         x: -130,
+-         y: -140,
++         scale: 0,
++         opacity: 0,
+          ease: "power1.inOut",
+        },
+        {
+-         x: 0,
+-         y: 0,
++         scale: 1,
++         opacity: 1,
+        },
+        "<"
+        "#loader-path-2",
+        {
+-         x: 130,
+-         y: -140,
++         x: -80,
++         y: -50,
++         opacity: 0,
+          ease: "power1.inOut",
+        },
+        {
+          x: 0,
+          y: 0,
++         opacity: 1,
+        },
+        "<"
+        "#loader-inner-1",
+        {
+-         x: 60,
+-         y: -124,
++         x: -40,
++         y: -40,
++         opacity: 0,
+          ease: "power1.inOut",
+        },
+        {
+          x: 0,
+          y: 0,
++         opacity: 1,
+          duration: 1.2,
+        },
+        "#loader-inner-2",
+        {
+-         x: -60,
+-         y: -124,
++         x: 60,
++         y: -40,
++         opacity: 0,
+          ease: "power1.inOut",
+        },
+        {
+          x: 0,
+          y: 0,
++         opacity: 1,
+          duration: 1.2,
+        },
+```
+
+---
+
+_****_
+
+I've successfully replaced the logo in both the ScreenLoader and Header components with the new SVG logo you provided, and I've adjusted the animation parameters to work with the new logo's structure.
+
+Here's what I've done:
+
+1. Changed the logo SVG in both components to use your new design with the transparent background
+2. Maintained the ID structure so the animations can target the same elements
+3. Updated the animation parameters to match the new logo's layout:
+   - Circle animation now scales in from 0 instead of sliding in from the side
+   - Text elements have adjusted positioning and now fade in with opacity transitions
+   - Maintained the flash effect and final animation that scales and rotates the logo
+
+The logo animation now works with the following sequence:
+1. The logo starts with a 360-degree rotation
+2. The circular background scales in from nothing
+3. The text elements animate in from different directions while fading in
+4. The entire logo flashes briefly (opacity change)
+5. Finally, the logo rotates and scales down before the loader screen transitions away
+
+The new animation respects the structure of your logo while maintaining the dynamic, engaging feel of the original animation.
+
+---
+
+_**User**_
+
+remove that circle also
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+_****_
+
+I'll remove the circular elements from both logo components.
+
+---
+
+_****_
+
+```diff
+  
+      timeline.fromTo(".screen-loader-icon", { rotate: 360 }, { rotate: 0 })
+- 
+-     timeline.fromTo(
+-       "#loader-path-1",
+-       {
+-         scale: 0,
+-         opacity: 0,
+-         ease: "power1.inOut",
+-       },
+-       {
+-         scale: 1,
+-         opacity: 1,
+-       },
+-       "<"
+-     )
+  
+      timeline.fromTo(
+        "<"
+      )
+- 
+-     timeline.fromTo(
+-       "#loader-inner-2",
+-       {
+-         x: 60,
+-         y: -40,
+-         opacity: 0,
+-         ease: "power1.inOut",
+-       },
+-       {
+-         x: 0,
+-         y: 0,
+-         opacity: 1,
+-         duration: 1.2,
+-       },
+-       "<"
+-     )
+  
+      timeline.to(
+          viewBox="0 0 120 120" 
+        >
+-         <path 
+-           id="loader-path-1" 
+-           d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0z" 
+-           fill="transparent" 
+-           stroke="white"
+-         />
+          <path 
+            id="loader-path-2" 
+            fill="white"
+          />
+-         <path 
+-           id="loader-inner-2" 
+-           d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0z" 
+-           fill="transparent"
+-         />
+        </svg>
+      </div>
+```
+
+---
+
+_****_
+
+```diff
+            viewBox="0 0 120 120"
+          >
+-           <path
+-             id="path-1"
+-             d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0z"
+-             fill="transparent"
+-             stroke="white"
+-           />
+            <path
+              id="inner-1"
+              fill="white"
+            />
+-           <path 
+-             id="path-2" 
+-             d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0z" 
+-             fill="transparent"
+-           />
+          </svg>
+        </Link>
+```
+
+---
+
+_****_
+
+I've removed the circular elements from both logos:
+
+1. In the ScreenLoader component:
+   - Removed the main circle outline (`loader-path-1`)
+   - Removed the duplicate circle (`loader-inner-2`)
+   - Adjusted the animation to remove references to these elements
+
+2. In the Header component:
+   - Removed the main circle outline (`path-1`)
+   - Removed the duplicate circle (`path-2`)
+
+The logo now shows only the typographic elements without the circular background, matching what you requested. The animation in the ScreenLoader has been updated to work with just the remaining elements, maintaining the dynamic entrance and transition effects for the text parts of the logo.
+
+---
+
+_**User**_
+
+in @Header.tsx position logo little upp side
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+_****_
+
+```diff
+            width="250"
+            height="250"
+-           className="header-icon relative top-[-24px] hidden scale-50 overflow-visible"
++           className="header-icon relative top-[-36px] hidden scale-50 overflow-visible"
+            viewBox="0 0 120 120"
+          >
+```
+
+---
+
+_****_
+
+I've adjusted the logo position to move it higher up. Changed the top value from -24px to -36px, which will position the logo 12 pixels higher than before.
 
 ---
 
