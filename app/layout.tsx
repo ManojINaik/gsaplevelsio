@@ -7,36 +7,37 @@ import Header from "./layouts/Header"
 import Socials from "./layouts/Socials"
 
 export const metadata: Metadata = {
-  title: "vibejam",
+  title: "vibejam - 2025 Vibe Coding Game Jam",
   description:
-    "Motion Scape is a visually dynamic website dedicated to the art of animations and transitions in web design. Created to inspire designers and developers, it showcases a variety of smooth, immersive motion effects that add elegance and interactivity to digital experiences.",
+    "Join the first AI-assisted game development competition. Create multiplayer, web-accessible games with at least 80% AI-generated code. #vibejam is hosted by @levelsio with a submission deadline of April 1, 2025.",
   generator: "Next.js",
-  applicationName: "Motion Scape",
+  applicationName: "vibejam",
   referrer: "origin-when-cross-origin",
-  metadataBase: new URL("https://motion-gsap.vercel.app/"),
+  metadataBase: new URL("https://jam.pieter.com/"),
   keywords: [
-    "Next.js",
-    "React",
-    "JavaScript",
-    "TypeScript",
-    "GSAP",
-    "Transitions",
-    "Animations",
+    "vibejam",
+    "Game Jam",
+    "AI-assisted",
+    "Vibe Coding",
+    "Game Development",
+    "ThreeJS",
+    "Multiplayer Games",
+    "@levelsio",
   ],
   category: "technology",
   authors: [{ name: "devManojINaik", url: "https://devManojINaik.vercel.app/" }],
   creator: "devManojINaik",
   publisher: "devManojINaik",
   openGraph: {
-    title: "Motion Scape Gsap",
+    title: "vibejam - 2025 Vibe Coding Game Jam",
     description:
-      "Motion Scape is a visually dynamic website dedicated to the art of animations and transitions in web design. Created to inspire designers and developers, it showcases a variety of smooth, immersive motion effects that add elegance and interactivity to digital experiences.",
-    url: "https://motion-gsap.vercel.app/",
-    siteName: "Motion Scape",
+      "Join the first AI-assisted game development competition. Create multiplayer, web-accessible games with at least 80% AI-generated code. #vibejam is hosted by @levelsio with a submission deadline of April 1, 2025.",
+    url: "https://vibejam.vercel.app/",
+    siteName: "vibejam",
     images: [
       {
         url: "https://i.postimg.cc/4yGnps76/Screenshot-2024-10-29-at-11-07-25-AM.png",
-        alt: "Motion Scape",
+        alt: "vibejam - 2025 Vibe Coding Game Jam",
       },
     ],
     locale: "en_US",
@@ -44,13 +45,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Motion Scape",
+    title: "vibejam - 2025 Vibe Coding Game Jam",
     description:
-      "Motion Scape is a visually dynamic website dedicated to the art of animations and transitions in web design. Created to inspire designers and developers, it showcases a variety of smooth, immersive motion effects that add elegance and interactivity to digital experiences.",
+      "Join the first AI-assisted game development competition. Create multiplayer, web-accessible games with at least 80% AI-generated code. #vibejam is hosted by @levelsio with a submission deadline of April 1, 2025.",
     creator: "devManojINaik",
     images: {
       url: "https://i.postimg.cc/4yGnps76/Screenshot-2024-10-29-at-11-07-25-AM.png",
-      alt: "Motion Scape",
+      alt: "vibejam - 2025 Vibe Coding Game Jam",
     },
   },
 }

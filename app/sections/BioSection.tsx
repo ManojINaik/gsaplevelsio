@@ -162,7 +162,7 @@ export default function BioSection() {
                 "text-sm font-medium text-white md:text-base"
               )}
             >
-              Welcome to Motion Scape, where stunning animations and smooth transitions come to life! Powered by GSAP (GreenSock Animation Platform), we specialize in creating dynamic, engaging visuals that elevate user experience.
+              Welcome to #vibejam, the world's first AI-assisted game development competition! Join us in pushing the boundaries of game creation through the innovative concept of vibe coding, where AI and human creativity blend to produce extraordinary multiplayer experiences.
             </p>
 
             <p
