@@ -7,7 +7,7 @@ import Header from "./layouts/Header"
 import Socials from "./layouts/Socials"
 
 export const metadata: Metadata = {
-  title: "MotionScape",
+  title: "vibejam",
   description:
     "Motion Scape is a visually dynamic website dedicated to the art of animations and transitions in web design. Created to inspire designers and developers, it showcases a variety of smooth, immersive motion effects that add elegance and interactivity to digital experiences.",
   generator: "Next.js",
